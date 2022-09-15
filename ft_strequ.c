@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+int	ft_strequ(char const *s1, char const *s2)
+{
+	unsigned int	i;
+
+	i = 0;
+	if (s1[0] == '\0' && s2[0] == '\0')
+		return (1);
+	while (s1[i] || s2[i])
+	{
+		if (s1[i] != s2[i])
+			return (0);
+		i++;
+	}
+	return (1);
+
+}
+
+int	main(int argc, char **argv)
+{
+	if (argc == 3)
+		printf("%d\n", ft_strequ(argv[1], argv[2]));
+	return 0;
+}
