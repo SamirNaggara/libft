@@ -6,7 +6,7 @@
 /*   By: snaggara <snaggara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 14:19:25 by snaggara          #+#    #+#             */
-/*   Updated: 2022/11/28 15:23:53 by snaggara         ###   ########.fr       */
+/*   Updated: 2022/11/28 20:14:02 by snaggara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,14 @@
 void	*ft_memset(void *s, int c, size_t n)
 {
 	size_t	i;
-	int	*sbis;
+	char	*sbis;
 
-	sbis = (int *)s;
+	sbis = (char *)s;
 	i = 0;
 	while (i < n)
-		sbis[i++] = c;
+	{
+		sbis[i] = c;
+		i++;
+	}
 	return (sbis);
 }

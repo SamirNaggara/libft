@@ -1,8 +1,8 @@
 CC = gcc
 FLAGS = -Wall -Wextra -Werror
 EXEC = libft.a
-SOURCES = ./ft_isalpha.c
-#SOURCES = 	./ft_atoi.c \
+#SOURCES = ./ft_isalpha.c
+SOURCES = 	./ft_atoi.c \
 ./ft_bzero.c \
 ./ft_calloc.c \
 ./ft_isalnum.c \
@@ -44,7 +44,7 @@ all: $(EXEC)
 	$(CC) $(FLAGS) -o $@ -c $<
 
 $(EXEC): $(OBJETS)
-	ar rcs $(EXEC) $(OBJ)
+	ar rcs $(EXEC) $(OBJETS)
 
 clean:
 	rm -f $(OBJETS)

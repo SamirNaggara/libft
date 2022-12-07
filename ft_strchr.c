@@ -6,7 +6,7 @@
 /*   By: snaggara <snaggara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 15:58:45 by snaggara          #+#    #+#             */
-/*   Updated: 2022/11/11 16:38:02 by snaggara         ###   ########.fr       */
+/*   Updated: 2022/12/07 14:05:03 by snaggara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,12 @@ char *ft_strchr(const char *s, int c)
 {
     while (*s)
     {
-        if (*s == c)
+        if (*s % 256 == c % 256)
             return ((char *)s);
         s++;
     }
+    if (c == 0)
+        return ((char *)s);
     return ((char *)0);
 }
 /*
