@@ -6,13 +6,11 @@
 /*   By: snaggara <snaggara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 15:21:51 by snaggara          #+#    #+#             */
-/*   Updated: 2022/11/28 15:35:53 by snaggara         ###   ########.fr       */
+/*   Updated: 2022/12/08 18:49:55 by snaggara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-char	*str_malloc_and_initialize(int length);
 
 size_t		ft_strlen(const char *chaine);
 
@@ -24,35 +22,30 @@ char	*ft_strtrim(const  char *s1, const char *set)
 {
 	int		i;
 	char	*new;
+	char	*new2;
+	size_t	size;
 
-	new = str_malloc_and_initialize(ft_strlen(s1));
-	i = 0;
-	while (s1[i])
+	if (!*set)
 	{
-		if (!char_in_array(s1[i], set))
-			ft_concat_car(new, s1[i]);
-		i++;
+		return ((ft_strdup(s1)));
 	}
-	return (new);
-}
-
-/*
-	Malloc et initialise avec des \0 une chaine de caractere, 
-	avec la longueur demande
-	Prends en compte le +1 pour la chaine final
-*/
-char	*str_malloc_and_initialize(int length)
-{
-	char	*new;
-	int		i;
-
-	new = (char *)malloc(sizeof(char) * length + 1);
-	if (!new)
-		return (NULL);
+	size = ft_strlen(s1);
+	new = malloc(sizeof(char) * (size + 1));
+	ft_memset(new, 0, size + 1);
 	i = 0;
-	while (i <= length)
-		new[i++] = '\0';
-	return (new);
+	while (*set)
+	{
+		while (s1[i])
+		{
+			if (!char_in_array(s1[i], set))
+				ft_concat_car(new, s1[i]);
+			i++;
+		}
+		set++;
+	}
+	new2 = ft_strdup(new);
+	free(new);
+	return (new2);
 }
 
 /*
@@ -87,10 +80,10 @@ char	*ft_concat_car(char *chaine, char car)
 	return (chaine);
 }
 
-/*
-int	main(int ac, char **av)
-{
-	if (ac)
-		printf("%s", ft_strtrim(av[1],av[2]));
-}
-*/
+
+// int	main(int ac, char **av)
+// {
+// 	if (ac)
+// 		printf("%s", ft_strtrim(av[1],av[2]));
+// }
+

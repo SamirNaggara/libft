@@ -6,41 +6,42 @@
 /*   By: snaggara <snaggara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 18:37:22 by snaggara          #+#    #+#             */
-/*   Updated: 2022/11/28 14:57:23 by snaggara         ###   ########.fr       */
+/*   Updated: 2022/12/08 13:58:46 by snaggara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *strnstr(const char *big, const char *little, size_t len)
+char *ft_strnstr(const char *big, const char *little, size_t len)
 {
-    size_t i;
+    size_t  i;
+    size_t  j;
+    
     if (!*little)
         return ((char *)big);
-    while (*big)
+    if (len == 0)
+        return ((char *)0);
+    j = 0;
+    while (big[j])
     {
-        if (*big == *little)
+        if (big[j] == *little)
         {
             i = 0;
             
-            while (little[i] && big[i] == little[i])
-            {
+            while (little[i] && big[j + i] == little[i] && i + j < len)
                 i++;
-                if (i == len)
-                    break ;
-            }
-            if (!little[i] || i == len)
-                return ((char *)big);
+            if (!little[i])
+                return ((char *)(big + j));
         }
-        big++;
+        j++;
     }
     return ((char *)0);
 }
 
 //Si 
 
-int main(int ac, char **av)
-{
-    (void)ac;
-    printf("%s\n", strnstr(av[1], av[2], *av[3]));
-}
+// int main(int ac, char **av)
+// {
+//     (void)ac;
+//     printf("%s\n", strnstr(av[1], av[2], *av[3]));
+// }

@@ -6,7 +6,7 @@
 /*   By: snaggara <snaggara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 15:45:36 by snaggara          #+#    #+#             */
-/*   Updated: 2022/12/07 12:13:00 by snaggara         ###   ########.fr       */
+/*   Updated: 2022/12/16 16:35:02 by snaggara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,12 @@ char *ft_strrchr(const char *s, int c);
 int ft_strncmp(const char *s1, const char *s2, size_t n);
 void *ft_memchr(const void *s, int c, size_t n);
 int ft_memcmp(const void *s1, const void *s2, size_t n);
+char *ft_strnstr(const char *big, const char *little, size_t len);
+int ft_atoi(const char *nptr);
+void *ft_calloc(size_t nmemb, size_t size);
+char *ft_strdup(const char *s);
+char    *ft_strjoin(char const *s1, char const *s2);
+char	**ft_split(char const *s, char c);
+
 
 #endif
