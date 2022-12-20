@@ -1,7 +1,7 @@
 CC = gcc
 FLAGS = -Wall -Wextra -Werror
 EXEC = libft.a
-#SOURCES = ./ft_isalpha.c
+
 SOURCES = 	./ft_atoi.c \
 ./ft_bzero.c \
 ./ft_calloc.c \
@@ -37,7 +37,18 @@ SOURCES = 	./ft_atoi.c \
 ./ft_tolower.c \
 ./ft_toupper.c
 
+SOURCES_BONUS = ./ft_lstadd_back.c \
+./ft_lstadd_front.c \
+./ft_lstclear.c \
+./ft_lstdelone.c \
+./ft_lstiter.c \
+./ft_lstlast.c \
+./ft_lstmap.c \
+./ft_lstnew.c \
+./ft_lstsize.c
+
 OBJETS = $(SOURCES:.c=.o)
+BONUS = $(SOURCES_BONUS:.c=.o)
 
 all: $(EXEC)
 
@@ -46,6 +57,8 @@ all: $(EXEC)
 
 $(EXEC): $(OBJETS)
 	ar rcs $(EXEC) $(OBJETS)
+bonus:
+	ar rcs $(EXEC) $(OBJETS) $(BONUS)
 
 clean:
 	rm -f $(OBJETS)
