@@ -6,7 +6,7 @@
 /*   By: snaggara <snaggara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 14:23:42 by snaggara          #+#    #+#             */
-/*   Updated: 2022/11/28 14:52:47 by snaggara         ###   ########.fr       */
+/*   Updated: 2022/12/21 00:37:51 by snaggara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,8 @@ void	ft_bzero(void *s, size_t n)
 {
 	size_t	i;
 	char	*sbis;
-	
-	sbis = (char*)s;
 
+	sbis = (char *)s;
 	i = 0;
 	while (i < n)
 		sbis[i++] = '\0';

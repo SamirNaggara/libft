@@ -6,7 +6,7 @@
 /*   By: snaggara <snaggara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 16:16:19 by snaggara          #+#    #+#             */
-/*   Updated: 2022/12/16 20:34:22 by snaggara         ###   ########.fr       */
+/*   Updated: 2022/12/22 03:55:57 by snaggara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	**return_null(void);
 
 char	**return_simple(char const *s, int nul);
 
-void	add_zero_string(char *chaine, char c);
+void	add_zero_string(char *chaine, char c, char *debut_chaine);
 
 int		ftab(char **result, char *chaine, char *debut_chaine, char *fin_chaine);
 
@@ -30,22 +30,24 @@ char	**ft_split(char const *s, char c)
 	char	**result;
 	char	**debut_result;
 
+	if (!s)
+		return ((char **) NULL);
 	if (!*s)
 		return (return_simple(s, 1));
 	if (c == 0)
 		return (return_simple(s, 0));
 	chaine = ft_strdup(s);
+	if (!chaine)
+		return ((char **) NULL);
 	debut_chaine = chaine;
 	fin_chaine = chaine + ft_strlen(chaine);
 	result = (char **)malloc((nb_c_in_string(chaine, c) + 2) * sizeof(char *));
 	if (!result)
-		return (return_simple(s, 1));
+		return ((char **) NULL);
 	debut_result = result;
-	add_zero_string(chaine, c);
-	chaine = debut_chaine;
+	add_zero_string(chaine, c, debut_chaine);
 	if (!ftab(result, chaine, debut_chaine, fin_chaine))
 		return (return_simple(s, 1));
-	free(debut_chaine);
 	return (debut_result);
 }
 
@@ -56,11 +58,8 @@ int	ftab(char **result, char *chaine, char *debut_chaine, char *fin_chaine)
 	i = 0;
 	while (chaine < fin_chaine)
 	{
-		if (!*chaine)
-		{
-			chaine++;
+		if (!*chaine && chaine++)
 			continue ;
-		}
 		result[i] = ft_strdup(chaine);
 		if (!result[i])
 		{
@@ -75,10 +74,11 @@ int	ftab(char **result, char *chaine, char *debut_chaine, char *fin_chaine)
 		i++;
 	}
 	result[i] = (char *) NULL;
+	free(debut_chaine);
 	return (1);
 }
 
-void	add_zero_string(char *chaine, char c)
+void	add_zero_string(char *chaine, char c, char *debut_chaine)
 {
 	char	*fin_chaine;
 
@@ -93,6 +93,7 @@ void	add_zero_string(char *chaine, char c)
 		while (*chaine == c)
 				*(chaine++) = '\0';
 	}
+	chaine = debut_chaine;
 }
 
 char	**return_simple(char const *s, int nul)
@@ -102,12 +103,16 @@ char	**return_simple(char const *s, int nul)
 	if (nul == 1)
 	{
 		result = (char **)malloc(sizeof(char *));
+		if (!result)
+			return ((char **) NULL);
 		result[0] = NULL;
 		return (result);
 	}
 	else
 	{
 		result = (char **)malloc(sizeof(char *) * 2);
+		if (!result)
+			return ((char **) NULL);
 		result[0] = ft_strdup(s);
 		result[1] = NULL;
 		return (result);

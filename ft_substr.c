@@ -6,7 +6,7 @@
 /*   By: snaggara <snaggara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 12:27:15 by snaggara          #+#    #+#             */
-/*   Updated: 2022/12/08 16:39:55 by snaggara         ###   ########.fr       */
+/*   Updated: 2022/12/22 02:46:29 by snaggara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char	*new_str;
 	size_t	size;
 
+	if (!s)
+		return (NULL);
 	if (ft_strlen(s) > len)
 		size = len;
 	else
@@ -59,5 +61,3 @@ char	*ft_strncpy(char *dest, char const *src, unsigned int n)
 
 // 	free(resultat);
 // }
-
-

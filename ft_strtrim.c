@@ -6,19 +6,19 @@
 /*   By: snaggara <snaggara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 15:21:51 by snaggara          #+#    #+#             */
-/*   Updated: 2022/12/08 18:49:55 by snaggara         ###   ########.fr       */
+/*   Updated: 2022/12/21 01:50:01 by snaggara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t		ft_strlen(const char *chaine);
+size_t	ft_strlen(const char *chaine);
 
 int		char_in_array(const char car, const char *chaine);
 
 char	*ft_concat_car(char *chaine, char car);
 
-char	*ft_strtrim(const  char *s1, const char *set)
+char	*ft_strtrim(const char *s1, const char *set)
 {
 	int		i;
 	char	*new;
@@ -26,9 +26,7 @@ char	*ft_strtrim(const  char *s1, const char *set)
 	size_t	size;
 
 	if (!*set)
-	{
 		return ((ft_strdup(s1)));
-	}
 	size = ft_strlen(s1);
 	new = malloc(sizeof(char) * (size + 1));
 	ft_memset(new, 0, size + 1);
@@ -47,7 +45,6 @@ char	*ft_strtrim(const  char *s1, const char *set)
 	free(new);
 	return (new2);
 }
-
 /*
 	Renvoie true si le caractere est dans la chaine
 */
@@ -79,11 +76,3 @@ char	*ft_concat_car(char *chaine, char car)
 	chaine[i + 1] = '\0';
 	return (chaine);
 }
-
-
-// int	main(int ac, char **av)
-// {
-// 	if (ac)
-// 		printf("%s", ft_strtrim(av[1],av[2]));
-// }
-
