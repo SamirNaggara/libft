@@ -6,7 +6,7 @@
 /*   By: snaggara <snaggara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 15:21:51 by snaggara          #+#    #+#             */
-/*   Updated: 2022/12/21 01:50:01 by snaggara         ###   ########.fr       */
+/*   Updated: 2022/12/22 16:11:28 by snaggara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,34 +16,78 @@ size_t	ft_strlen(const char *chaine);
 
 int		char_in_array(const char car, const char *chaine);
 
-char	*ft_concat_car(char *chaine, char car);
+char	*ft_beggining_pos(const char *s1, const char *set);
+
+char	*ft_final_pos(const char *s1, const char *set);
+
+char	*return_empty(void);
 
 char	*ft_strtrim(const char *s1, const char *set)
 {
-	int		i;
-	char	*new;
-	char	*new2;
 	size_t	size;
+	char	*pos_beg;
+	char	*pos_final;
+	char	*to_return;
 
-	if (!*set)
+	if (!set)
 		return ((ft_strdup(s1)));
-	size = ft_strlen(s1);
-	new = malloc(sizeof(char) * (size + 1));
-	ft_memset(new, 0, size + 1);
+	if (!s1)
+		return (NULL);
+	if (!*s1)
+		return (return_empty());
+	pos_beg = ft_beggining_pos(s1, set);
+	if (pos_beg == s1 + ft_strlen(s1))
+		return (return_empty());
+	pos_final = ft_final_pos(s1, set);
+	size = pos_final - pos_beg + 1;
+	to_return = (char *)malloc(sizeof(char) * (size + 1));
+	if (!to_return)
+		return (NULL);
+	ft_memset(to_return, 0, size + 1);
+	ft_strlcpy(to_return, pos_beg, size + 1);
+	return (to_return);
+}
+
+char	*return_empty(void)
+{
+	char	*to_return;
+
+	to_return = (char *)malloc(sizeof(char));
+	if (!to_return)
+		return (NULL);
+	*to_return = '\0';
+	return (to_return);
+}
+/*
+	Renvoie la position du début de la chaine
+*/
+
+char	*ft_beggining_pos(const char *s1, const char *set)
+{
+	size_t	i;
+
 	i = 0;
-	while (*set)
+	while (s1[i])
 	{
-		while (s1[i])
-		{
-			if (!char_in_array(s1[i], set))
-				ft_concat_car(new, s1[i]);
-			i++;
-		}
-		set++;
+		if (!char_in_array(s1[i], set))
+			break ;
+		i++;
 	}
-	new2 = ft_strdup(new);
-	free(new);
-	return (new2);
+	return ((char *)(s1 + i));
+}
+
+char	*ft_final_pos(const char *s1, const char *set)
+{
+	size_t	i;
+
+	i = ft_strlen(s1) - 1;
+	while (s1[i])
+	{
+		if (!char_in_array(s1[i], set))
+			break ;
+		i--;
+	}
+	return ((char *)(s1 + i));
 }
 /*
 	Renvoie true si le caractere est dans la chaine
@@ -62,17 +106,14 @@ int	char_in_array(const char car, const char *chaine)
 	return (0);
 }
 /*
-	Concat dans la chaine le caractere demande. 
-	Il modifie aussi la chaine, et renvoie son pointeur
-	Ne gere pas le maloc
-*/
-
-char	*ft_concat_car(char *chaine, char car)
+int	main(int ac, char **av)
 {
-	int	i;
+	(void)ac;
+	char *result;
 
-	i = ft_strlen(chaine);
-	chaine[i] = car;
-	chaine[i + 1] = '\0';
-	return (chaine);
+	result = ft_strtrim(av[1], av[2]);
+	printf("%s\n", result);
+	free(result);
+	return 1;
 }
+*/

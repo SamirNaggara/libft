@@ -6,15 +6,13 @@
 /*   By: snaggara <snaggara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 00:46:32 by snaggara          #+#    #+#             */
-/*   Updated: 2022/12/21 00:58:27 by snaggara         ###   ########.fr       */
+/*   Updated: 2022/12/22 17:08:24 by snaggara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 size_t	ft_get_len(int n);
-
-int		ft_power(int nb, int power);
 
 char	*ft_initialise_result(long *number, size_t *i, size_t len);
 
@@ -64,19 +62,6 @@ char	*ft_initialise_result(long *number, size_t *i, size_t len)
 		ft_memset(result, 0, len + 1);
 	}
 	return (result);
-}
-
-int	ft_power(int nb, int power)
-{
-	if (power < 0)
-		return (0);
-	if (power == 0)
-		return (1);
-	if (power == 1)
-		return (nb);
-	if (power == 2)
-		return (nb * nb);
-	return (nb * ft_power(nb, power - 1));
 }
 
 size_t	ft_get_len(int n)

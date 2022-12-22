@@ -39,7 +39,6 @@ SOURCES = 	./ft_atoi.c \
 
 SOURCES_BONUS = ./ft_lstadd_back.c \
 ./ft_lstadd_front.c \
-./ft_lstadd_back.c \
 ./ft_lstclear.c \
 ./ft_lstdelone.c \
 ./ft_lstiter.c \
@@ -68,9 +67,9 @@ fclean: clean
 
 re: fclean all
 
-so:
-	$(CC) -nostartfiles -fPIC $(FLAGS) $(SOURCES)
-	gcc -nostartfiles -shared -o libft.so $(OBJETS)
+so: $(SOURCES) $(OBJETS) $(SOURCES_BONUS) $(BONUS)
+	$(CC) -nostartfiles -fPIC $(FLAGS) $(SOURCES) $(SOURCES_BONUS)
+	gcc -nostartfiles -shared -o libft.so $(OBJETS) $(BONUS)
 
 .PHONY: all clean fclean re
 

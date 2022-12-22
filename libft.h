@@ -6,7 +6,7 @@
 /*   By: snaggara <snaggara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 15:45:36 by snaggara          #+#    #+#             */
-/*   Updated: 2022/12/22 00:42:21 by snaggara         ###   ########.fr       */
+/*   Updated: 2022/12/22 17:04:45 by snaggara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,5 +72,6 @@ void ft_lstclear(t_list **lst, void (*del)(void *));
 void ft_lstdelone(t_list *lst, void (*del)(void *));
 void ft_lstiter(t_list *lst, void (*f)(void *));
 t_list *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+int	ft_power(int nb, int power);
 
 #endif
