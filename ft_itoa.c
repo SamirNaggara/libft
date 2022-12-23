@@ -6,7 +6,7 @@
 /*   By: snaggara <snaggara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 00:46:32 by snaggara          #+#    #+#             */
-/*   Updated: 2022/12/22 17:08:24 by snaggara         ###   ########.fr       */
+/*   Updated: 2022/12/23 03:39:04 by snaggara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 size_t	ft_get_len(int n);
 
 char	*ft_initialise_result(long *number, size_t *i, size_t len);
+
+int		ft_power2(int nb, int power);
 
 char	*ft_itoa(int n)
 {
@@ -79,6 +81,19 @@ size_t	ft_get_len(int n)
 		i++;
 	}
 	return ((size_t)i);
+}
+
+int	ft_power2(int nb, int power)
+{
+	if (power < 0)
+		return (0);
+	if (power == 0)
+		return (1);
+	if (power == 1)
+		return (nb);
+	if (power == 2)
+		return (nb * nb);
+	return (nb * ft_power(nb, power - 1));
 }
 /*
 int main(int ac, char **av)

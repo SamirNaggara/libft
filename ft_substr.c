@@ -6,7 +6,7 @@
 /*   By: snaggara <snaggara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 12:27:15 by snaggara          #+#    #+#             */
-/*   Updated: 2022/12/22 02:46:29 by snaggara         ###   ########.fr       */
+/*   Updated: 2022/12/23 04:16:55 by snaggara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (!new_str)
 		return (NULL);
 	ft_memset(new_str, '\0', size + 1);
-	if (start > len)
+	if (start > ft_strlen(s))
 		return (new_str);
-	new_str = ft_strncpy(new_str, s + start, size);
+	ft_strncpy(new_str, s + start, size);
 	return (new_str);
 }
 

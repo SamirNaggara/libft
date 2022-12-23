@@ -1,6 +1,8 @@
+# libft
+
 CC = gcc
 FLAGS = -Wall -Wextra -Werror
-EXEC = libft.a
+NAME = libft.a
 
 SOURCES = 	./ft_atoi.c \
 ./ft_bzero.c \
@@ -50,20 +52,20 @@ SOURCES_BONUS = ./ft_lstadd_back.c \
 OBJETS = $(SOURCES:.c=.o)
 BONUS = $(SOURCES_BONUS:.c=.o)
 
-all: $(EXEC)
+all: $(NAME)
 
 %.o: %.c
 	$(CC) $(FLAGS) -o $@ -c $<
 
-$(EXEC): $(OBJETS)
-	ar rcs $(EXEC) $(OBJETS)
+$(NAME): $(OBJETS)
+	ar rcs $(NAME) $(OBJETS)
 bonus: $(BONUS)
-	ar rcs $(EXEC) $(OBJETS) $(BONUS)
+	ar rcs $(NAME) $(BONUS)
 
 clean:
 	rm -f $(OBJETS) $(BONUS)
 fclean: clean
-	rm -f $(EXEC)
+	rm -f $(NAME)
 
 re: fclean all
 

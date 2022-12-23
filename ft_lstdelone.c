@@ -6,7 +6,7 @@
 /*   By: snaggara <snaggara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 20:15:24 by snaggara          #+#    #+#             */
-/*   Updated: 2022/12/21 20:16:10 by snaggara         ###   ########.fr       */
+/*   Updated: 2022/12/23 03:39:20 by snaggara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,5 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *))
 	if (!lst || !del)
 		return ;
 	(*del)(lst->content);
-	free(&(lst->content));
+	free(lst);
 }

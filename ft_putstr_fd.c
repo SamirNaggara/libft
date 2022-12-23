@@ -6,7 +6,7 @@
 /*   By: snaggara <snaggara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 01:45:11 by snaggara          #+#    #+#             */
-/*   Updated: 2022/12/22 04:04:04 by snaggara         ###   ########.fr       */
+/*   Updated: 2022/12/23 03:39:34 by snaggara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,4 @@ void	ft_putstr_fd(char *s, int fd)
 		return ;
 	while (*s)
 		write(fd, s++, 1);
-	write(fd, "\0", 1);
 }

@@ -6,7 +6,7 @@
 /*   By: snaggara <snaggara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 01:42:42 by snaggara          #+#    #+#             */
-/*   Updated: 2022/12/22 17:08:52 by snaggara         ###   ########.fr       */
+/*   Updated: 2022/12/22 17:51:19 by snaggara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ size_t	ft_get_len2(long n)
 	}
 	return ((size_t)i);
 }
-
 
 int	ft_power(int nb, int power)
 {
