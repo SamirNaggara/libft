@@ -6,7 +6,7 @@
 /*   By: snaggara <snaggara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 00:46:32 by snaggara          #+#    #+#             */
-/*   Updated: 2022/12/23 03:39:04 by snaggara         ###   ########.fr       */
+/*   Updated: 2022/12/23 15:13:55 by snaggara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ int	ft_power2(int nb, int power)
 		return (nb);
 	if (power == 2)
 		return (nb * nb);
-	return (nb * ft_power(nb, power - 1));
+	return (nb * ft_power2(nb, power - 1));
 }
 /*
 int main(int ac, char **av)
