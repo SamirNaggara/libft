@@ -6,7 +6,7 @@
 /*   By: snaggara <snaggara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 14:42:58 by snaggara          #+#    #+#             */
-/*   Updated: 2022/12/21 01:53:15 by snaggara         ###   ########.fr       */
+/*   Updated: 2022/12/29 04:15:22 by snaggara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 		dest[i] = src[i];
 		i++;
 	}
-		dest[i++] = '\0';
+	dest[i] = '\0';
 	return (ft_strlen(src));
 }
 // int main()
