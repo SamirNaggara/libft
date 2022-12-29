@@ -6,7 +6,7 @@
 /*   By: snaggara <snaggara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 14:42:58 by snaggara          #+#    #+#             */
-/*   Updated: 2022/12/29 04:15:22 by snaggara         ###   ########.fr       */
+/*   Updated: 2022/12/29 05:09:44 by snaggara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 	i = 0;
 	if (size == 0)
 		return (ft_strlen(src));
-	while (src[i] && i < size - 1)
+	while (i < size - 1 && src[i])
 	{
 		dest[i] = src[i];
 		i++;
